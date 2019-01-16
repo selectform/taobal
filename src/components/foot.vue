@@ -1,20 +1,18 @@
 <template>
   <div>
-    {{aaa}}
-
-
+    页眉
   </div>
 </template>
-
 <script>
 export default {
-  name: 'tophead',
-  data () {
+  name: 'foot',
+  data() {
     return {
-     aaa: '内容'
+
     }
   }
 }
 </script>
-<style>
+<style lang="scss">
+
 </style>

@@ -2,27 +2,32 @@
   <div>
     <el-container>
         <el-header>
-          <!-- <tophead></tophead> -->
-          1261h56grdhgfrs1564156gf54es
+          <tophead></tophead>
         </el-header>
         <el-main>
+          <!-- 主体 -->
           <router-view></router-view>
         </el-main>
+        <el-footer>
+          <foot></foot>
+        </el-footer>
     </el-container>
   </div>
 </template>
 <script>
 import tophead from './tophead.vue';
+import foot from './foot.vue';
 export default {
-  name: 'header',
+  name: 'heads',
   data() {
     return {
 
     }
   },
-  // components: {
-  //   'tophead': tophead
-  // }
+  components: {
+    'tophead': tophead,
+    'foot': foot
+  }
 }
 </script>
 <style lang="scss">
