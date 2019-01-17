@@ -1,18 +1,15 @@
 <template>
-  <div>
-    <el-container>
-        <el-header>
-          <tophead></tophead>
-        </el-header>
-        <el-main>
-          <!-- 主体 -->
-          <router-view></router-view>
-        </el-main>
-        <el-footer>
-          <foot></foot>
-        </el-footer>
-    </el-container>
-  </div>
+<div>
+    <div>
+        <tophead></tophead>
+    </div>
+    <div><!-- 主体 -->
+        <router-view></router-view>
+    </div>
+    <div>
+        <foot></foot>
+    </div>
+</div>
 </template>
 <script>
 import tophead from './tophead.vue';

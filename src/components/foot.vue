@@ -1,6 +1,6 @@
 <template>
   <div>
-    页眉
+    <!-- 页眉 -->
   </div>
 </template>
 <script>
