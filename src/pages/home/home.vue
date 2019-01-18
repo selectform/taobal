@@ -9,8 +9,8 @@
                     <router-link to="/home">标的物类型</router-link>
                 </p>
                 <ul class="clearfix">
-                    <li v-for="item in logoL">
-                        <router-link :to="item.path" :key="item.id">{{item.name}}</router-link>
+                    <li v-for="item in logoL" :key="item.id">
+                        <router-link :to="item.path">{{item.names}}</router-link>
                     </li>
                 </ul>
                 <p>
@@ -19,7 +19,7 @@
                 </p>
                 <ul>
                     <li v-for="item in logoLb" :key="item.id">
-                        <router-link :to="item.path">{{item.name}}</router-link>
+                        <router-link :to="item.path">{{item.names}}</router-link>
                     </li>
                 </ul>
             </el-col>
@@ -35,7 +35,7 @@
                                 </router-link>
                             </dt>
                             <dd>
-                                <router-link :to="item.path">{{item.name}}</router-link>
+                                <router-link :to="item.path">{{item.names}}</router-link>
                             </dd>
                         </dl>
                     </div>
@@ -49,9 +49,9 @@
                             </span>
                         </router-link>
                         <div class="logoRban">
-                            <router-link :to="item.to" v-for="item in logoRban" :key="item.id" :title="item.name">
+                            <router-link :to="item.path" v-for="item in logoRban" :key="item.id" :title="item.names">
                                 <span>{{item.an}}</span>
-                                <u>{{item.name}}</u>
+                                <u>{{item.names}}</u>
                             </router-link>
                         </div>
                         <div class="logoRan0">
@@ -68,14 +68,21 @@
                 <div class="fr">
                     <!-- 轮播图 -->
                     <el-carousel height="368px">
-                        <el-carousel-item v-for="item in logoCome" :key="item.id">
-                            <router-link :to="item.to"><img :src="item.url" alt=""></router-link>
+                        <el-carousel-item arrow="always" v-for="item in logoCome" :key="item.id">
+                            <router-link :to="item.path">
+                                <img :src="item.url" alt=""/>
+                            </router-link>
                         </el-carousel-item>
                     </el-carousel>
                 </div>
             </el-col>
         </el-row>
-
+        <div class="homeTwo clearfix">
+            <!-- 竞拍流程 -->
+            <router-link class="fl" to="/home">竞拍流程</router-link>
+            <div class="fl">
+            </div>
+        </div>
       </div>
   </div>
 </template>
@@ -85,62 +92,62 @@ export default {
   data() {
     return {
         logoL: {
-            a: { name: '机动车', path: '/home', id: 1},
-            b: { name: '住宅用房', path: '/home', id: 2},
-            c: { name: '资产', path: '/home', id: 3},
-            d: { name: '土地', path: '/home', id: 4},
-            e: { name: '林权', path: '/home', id: 5},
-            f: { name: '无形资产', path: '/home', id: 6},
-            g: { name: '工程', path: '/home', id: 7},
-            j: { name: '其他', path: '/home', id: 8}
+            a: { names: '机动车', path: '/home', id: 1},
+            b: { names: '住宅用房', path: '/home', id: 2},
+            c: { names: '资产', path: '/home', id: 3},
+            d: { names: '土地', path: '/home', id: 4},
+            e: { names: '林权', path: '/home', id: 5},
+            f: { names: '无形资产', path: '/home', id: 6},
+            g: { names: '工程', path: '/home', id: 7},
+            j: { names: '其他', path: '/home', id: 8}
         },
         logoLb: {
-            a: { name: '浙江', path: '/home', id: 1},
-            b: { name: '江苏', path: '/home', id: 2},
-            c: { name: '广东', path: '/home', id: 3},
-            g: { name: '福建', path: '/home', id: 4},
-            f: { name: '山东', path: '/home', id: 5},
-            e: { name: '河南', path: '/home', id: 6},
-            d: { name: '四川', path: '/home', id: 7},
-            h: { name: '北京', path: '/home', id: 8},
-            i: { name: '河北', path: '/home', id: 9},
-            k: { name: '江西', path: '/home', id: 10},
-            l: { name: '湖北', path: '/home', id: 11},
-            m: { name: '广西', path: '/home', id: 12},
-            n: { name: '重庆', path: '/home', id: 13},
-            oa: { name: '湖南', path: '/home', id: 14},
-            fa: { name: '天津', path: '/home', id: 15},
-            fa: { name: '安徽', path: '/home', id: 16},
-            da: { name: '云南', path: '/home', id: 17},
-            fd: { name: '陕西', path: '/home', id: 18},
-            af: { name: '贵州', path: '/home', id: 19},
-            et: { name: '吉林', path: '/home', id: 20},
-            yt: { name: '内蒙古', path: '/home', id: 21},
-            wr: { name: '海南', path: '/home', id: 22},
-            yr: { name: '黑龙江', path: '/home', id: 28},
-            rw: { name: '山西', path: '/home', id: 23},
-            te: { name: '甘肃', path: '/home', id: 24},
-            ku: { name: '辽宁', path: '/home', id: 25},
-            et: { name: '上海', path: '/home', id: 26},
-            qf: { name: '宁夏', path: '/home', id: 27}
+            a: { names: '浙江', path: '/home', id: 1},
+            b: { names: '江苏', path: '/home', id: 2},
+            c: { names: '广东', path: '/home', id: 3},
+            g: { names: '福建', path: '/home', id: 4},
+            f: { names: '山东', path: '/home', id: 5},
+            e: { names: '河南', path: '/home', id: 6},
+            d: { names: '四川', path: '/home', id: 7},
+            h: { names: '北京', path: '/home', id: 8},
+            i: { names: '河北', path: '/home', id: 9},
+            k: { names: '江西', path: '/home', id: 10},
+            l: { names: '湖北', path: '/home', id: 11},
+            m: { names: '广西', path: '/home', id: 12},
+            n: { names: '重庆', path: '/home', id: 13},
+            oa: { names: '湖南', path: '/home', id: 14},
+            fa: { names: '天津', path: '/home', id: 15},
+            fa: { names: '安徽', path: '/home', id: 16},
+            da: { names: '云南', path: '/home', id: 17},
+            fd: { names: '陕西', path: '/home', id: 18},
+            af: { names: '贵州', path: '/home', id: 19},
+            et: { names: '吉林', path: '/home', id: 20},
+            yt: { names: '内蒙古', path: '/home', id: 21},
+            wr: { names: '海南', path: '/home', id: 22},
+            yr: { names: '黑龙江', path: '/home', id: 28},
+            rw: { names: '山西', path: '/home', id: 23},
+            te: { names: '甘肃', path: '/home', id: 24},
+            ku: { names: '辽宁', path: '/home', id: 25},
+            et: { names: '上海', path: '/home', id: 26},
+            qf: { names: '宁夏', path: '/home', id: 27}
         },
         logoCome: [
-            {url: '../../../static/logo/logo1.jpg', to: '/home', id: '123'},
-            {url: '../../../static/logo/logo2.jpg', to: '/home', id: '114'},
-            {url: '../../../static/logo/logo3.jpg', to: '/home', id: '124'}
+            {url: '../../../static/logo/logo1.jpg', path: '/home', id: '123'},
+            {url: '../../../static/logo/logo2.jpg', path: '/home', id: '114'},
+            {url: '../../../static/logo/logo3.jpg', path: '/home', id: '124'}
         ],
         logoRtopT: [
-            {path: '/home', name: '零佣金', id: '1', icon: '&#xe625;'},
-            {path: '/home', name: '支持贷款', id: '2', icon: "&#xe607;"},
-            {path: '/home', name: '交易保障', id: '3', icon: '&#xe618;'}
+            {path: '/home', names: '零佣金', id: '1', icon: '&#xe625;'},
+            {path: '/home', names: '支持贷款', id: '2', icon: "&#xe607;"},
+            {path: '/home', names: '交易保障', id: '3', icon: '&#xe618;'}
         ],
         logoRban: [
-            {id: '1', name: '交保限额', an: '交保', to: '/home'},
-            {id: '2', name: '出价规则', an: '出价', to: '/home'},
-            {id: '3', name: '退回保证金', an: '退回', to: '/home'},
-            {id: '4', name: '售后交割', an: '交割', to: '/home'},
-            {id: '5', name: '金融贷款', an: '贷款', to: '/home'},
-            {id: '6', name: '如何过户?', an: '过户', to: '/home'}
+            {id: '1', names: '交保限额', an: '交保', path: '/home'},
+            {id: '2', names: '出价规则', an: '出价', path: '/home'},
+            {id: '3', names: '退回保证金', an: '退回', path: '/home'},
+            {id: '4', names: '售后交割', an: '交割', path: '/home'},
+            {id: '5', names: '金融贷款', an: '贷款', path: '/home'},
+            {id: '6', names: '如何过户?', an: '过户', path: '/home'}
         ]
     }
   }
@@ -156,8 +163,9 @@ export default {
         }
     }
     .homeOne {
+        width: 1190px;
         height: 370px;
-        margin-top: 20px;
+        margin: 20px 0 0 0 !important;
         // background: #ccc;
         .el-col-5 {
             height:100%;
@@ -220,6 +228,9 @@ export default {
                 height: 368px;
             }
         }
+    }
+    .logoR {
+        padding: 0 !important;
     }
     .logoR > div:nth-child(1) {
         width: 270px;
@@ -351,5 +362,22 @@ export default {
         height: 38px;
         line-height: 38px;
         text-align: center;
+    }
+    // 竞拍流程
+    .homeTwo {
+        width: 1188px;
+        height: 80px;
+        border: 1px solid #e3e3e3;
+        & a:first-child {
+            display:block;
+            font-size: 18px;
+            color: #000;
+            font-weight: 600;
+            width: 46px;
+            height:50px;
+            letter-spacing: 5px;
+            padding: 15px 49px;
+            background: #f2f2f2;
+        }
     }
 </style>
