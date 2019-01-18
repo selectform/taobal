@@ -22,8 +22,17 @@
                     </li>
                 </ul>
             </el-col>
-            <el-col :span="19">
-                gfdsg
+            <el-col :span="19" class="logoR">
+                <div class="fr">
+
+                </div>
+                <div class="fr">
+                    <el-carousel height="368px">
+                        <el-carousel-item v-for="item in logoCome" :key="item.id">
+                            <router-link :to="item.to"><img :src="item.url" alt=""></router-link>
+                        </el-carousel-item>
+                    </el-carousel>
+                </div>
             </el-col>
         </el-row>
 
@@ -68,13 +77,18 @@ export default {
             et: { name: '吉林', path: '/home', id: 20},
             yt: { name: '内蒙古', path: '/home', id: 21},
             wr: { name: '海南', path: '/home', id: 22},
-            yr: { name: '黑龙江', path: '/home', id: 22},
+            yr: { name: '黑龙江', path: '/home', id: 28},
             rw: { name: '山西', path: '/home', id: 23},
             te: { name: '甘肃', path: '/home', id: 24},
             ku: { name: '辽宁', path: '/home', id: 25},
             et: { name: '上海', path: '/home', id: 26},
             qf: { name: '宁夏', path: '/home', id: 27}
-        }
+        },
+        logoCome: [
+            {url: '../../static/logo/logo1.jpg', to: '/home', id: '123'},
+            {url: '../../static/logo/logo2.jpg', to: '/home', id: '114'},
+            {url: '../../static/logo/logo3.jpg', to: '/home', id: '124'}
+        ]
     }
   }
 }
@@ -139,8 +153,28 @@ export default {
             }
         }
     } 
-
-
+    .logoR > div:nth-child(2) {
+        width: 660px;
+        background: #eee;
+        box-sizing: border-box;
+        border: 1px solid #dfdfdf;
+        a {
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            img {
+                width: 658px;
+                height: 368px;
+            }
+        }
+    }
+    .logoR > div:nth-child(1) {
+        width: 270px;
+        height: 370px;
+        background: #f7f7f7;
+        box-sizing: border-box;
+        border: 1px solid #dfdfdf;
+    }
 
 
 
