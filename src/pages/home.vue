@@ -24,7 +24,7 @@
             </el-col>
             <el-col :span="19" class="logoR">
                 <div class="fr">
-
+                    
                 </div>
                 <div class="fr">
                     <el-carousel height="368px">
@@ -85,9 +85,9 @@ export default {
             qf: { name: '宁夏', path: '/home', id: 27}
         },
         logoCome: [
-            {url: '../../static/logo/logo1.jpg', to: '/home', id: '123'},
-            {url: '../../static/logo/logo2.jpg', to: '/home', id: '114'},
-            {url: '../../static/logo/logo3.jpg', to: '/home', id: '124'}
+            {url: '../assets/logo/logo1.jpg', to: '/home', id: '123'},
+            {url: '../assets/logo/logo2.jpg', to: '/home', id: '114'},
+            {url: '../assets/logo/logo3.jpg', to: '/home', id: '124'}
         ]
     }
   }
