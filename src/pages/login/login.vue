@@ -4,7 +4,7 @@
             <div>
                 <el-row>
                     <el-col :span="4">
-                        <router-link to="/login">
+                        <router-link to="/home">
                             <span>淘宝网</span>
                             <span>Taobao.com</span>
                         </router-link>
@@ -56,12 +56,12 @@
                         </p>
                         <el-form ref="form" :model="form">
                             <el-form-item>
-                                <el-input placeholder="请输入用户名" v-model="form.name">
+                                <el-input placeholder="请输入用户名" v-model="form.name" clearable>
                                     <template slot="prepend"><i class="iconfont">&#xe62e;</i></template>
                                 </el-input>
                             </el-form-item>
                             <el-form-item>
-                                <el-input placeholder="请输入密码" v-model="form.password">
+                                <el-input placeholder="请输入密码" v-model="form.password" clearable>
                                     <template slot="prepend"><i class="iconfont">&#xe61f;</i></template>
                                 </el-input>
                             </el-form-item>
