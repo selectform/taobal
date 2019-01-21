@@ -77,80 +77,61 @@
                 </div>
             </el-col>
         </el-row>
-        <div class="homeTwo clearfix">
+        <div class="homeTwo clearfix" v-if="offhomT">
             <!-- 竞拍流程 -->
-            <router-link class="fl" to="/home">竞拍流程</router-link>
-            <div class="fl">
-            </div>
+            <el-row>
+                <el-col :span="3" class="homeT_left">
+                    <router-link class="fl" to="/home">竞拍流程</router-link>
+                </el-col>
+                <el-col :span="21" class="homeT_right">
+                    <strong @click="offhomeTwo">
+                        <i class="iconfont">&#xe633;</i>
+                    </strong>
+                    <ul>
+                        <li v-for="(item,index) in homeT_right" :key="item.id">
+                            <router-link :to="item.to">
+                                <span>
+                                    <u>
+                                        <i class="iconfont" v-html="item.icon"></i>
+                                    </u>
+                                </span>
+                                <span>
+                                    <u>
+                                        <b>{{item.num}}</b>
+                                        <b>{{item.name}}</b>
+                                    </u>
+                                </span>
+                                <span><i class="iconfont">&#xe602;</i></span>
+                            </router-link>
+                        </li>
+                    </ul>
+
+                </el-col>
+            </el-row>
         </div>
       </div>
   </div>
 </template>
 <script>
+import { logoL, logoLb, logoCome, logoRtopT, logoRban, homeT_right} from './home.js';//主页的数据
 export default {
   name: 'home',
   data() {
     return {
-        logoL: {
-            a: { names: '机动车', path: '/home', id: 1},
-            b: { names: '住宅用房', path: '/home', id: 2},
-            c: { names: '资产', path: '/home', id: 3},
-            d: { names: '土地', path: '/home', id: 4},
-            e: { names: '林权', path: '/home', id: 5},
-            f: { names: '无形资产', path: '/home', id: 6},
-            g: { names: '工程', path: '/home', id: 7},
-            j: { names: '其他', path: '/home', id: 8}
-        },
-        logoLb: {
-            a: { names: '浙江', path: '/home', id: 1},
-            b: { names: '江苏', path: '/home', id: 2},
-            c: { names: '广东', path: '/home', id: 3},
-            g: { names: '福建', path: '/home', id: 4},
-            f: { names: '山东', path: '/home', id: 5},
-            e: { names: '河南', path: '/home', id: 6},
-            d: { names: '四川', path: '/home', id: 7},
-            h: { names: '北京', path: '/home', id: 8},
-            i: { names: '河北', path: '/home', id: 9},
-            k: { names: '江西', path: '/home', id: 10},
-            l: { names: '湖北', path: '/home', id: 11},
-            m: { names: '广西', path: '/home', id: 12},
-            n: { names: '重庆', path: '/home', id: 13},
-            oa: { names: '湖南', path: '/home', id: 14},
-            fa: { names: '天津', path: '/home', id: 15},
-            fa: { names: '安徽', path: '/home', id: 16},
-            da: { names: '云南', path: '/home', id: 17},
-            fd: { names: '陕西', path: '/home', id: 18},
-            af: { names: '贵州', path: '/home', id: 19},
-            et: { names: '吉林', path: '/home', id: 20},
-            yt: { names: '内蒙古', path: '/home', id: 21},
-            wr: { names: '海南', path: '/home', id: 22},
-            yr: { names: '黑龙江', path: '/home', id: 28},
-            rw: { names: '山西', path: '/home', id: 23},
-            te: { names: '甘肃', path: '/home', id: 24},
-            ku: { names: '辽宁', path: '/home', id: 25},
-            et: { names: '上海', path: '/home', id: 26},
-            qf: { names: '宁夏', path: '/home', id: 27}
-        },
-        logoCome: [
-            {url: '../../../static/logo/logo1.jpg', path: '/home', id: '123'},
-            {url: '../../../static/logo/logo2.jpg', path: '/home', id: '114'},
-            {url: '../../../static/logo/logo3.jpg', path: '/home', id: '124'}
-        ],
-        logoRtopT: [
-            {path: '/home', names: '零佣金', id: '1', icon: '&#xe625;'},
-            {path: '/home', names: '支持贷款', id: '2', icon: "&#xe607;"},
-            {path: '/home', names: '交易保障', id: '3', icon: '&#xe618;'}
-        ],
-        logoRban: [
-            {id: '1', names: '交保限额', an: '交保', path: '/home'},
-            {id: '2', names: '出价规则', an: '出价', path: '/home'},
-            {id: '3', names: '退回保证金', an: '退回', path: '/home'},
-            {id: '4', names: '售后交割', an: '交割', path: '/home'},
-            {id: '5', names: '金融贷款', an: '贷款', path: '/home'},
-            {id: '6', names: '如何过户?', an: '过户', path: '/home'}
-        ]
+        logoL,
+        logoLb,
+        logoCome,
+        logoRtopT,
+        logoRban,
+        homeT_right,
+        offhomT: true
     }
-  }
+  },
+    methods: {
+        offhomeTwo() {
+            this.offhomT = false;
+        }
+    }
 }
 </script>
 <style lang="scss">
@@ -368,16 +349,107 @@ export default {
         width: 1188px;
         height: 80px;
         border: 1px solid #e3e3e3;
-        & a:first-child {
+        .homeT_left a:first-child {
             display:block;
             font-size: 18px;
             color: #000;
             font-weight: 600;
-            width: 46px;
             height:50px;
             letter-spacing: 5px;
             padding: 15px 49px;
             background: #f2f2f2;
         }
+    }
+    .homeTwo .homeT_right ul {
+        width: 100%;
+        height: 80px;
+        position: relative;
+        li {
+            float: left;
+            width: 16.66%;
+            height: 100%;
+        }
+    }
+    .homeT_right ul li a {
+        display: block;
+        height: 100%;
+        span {
+            float: left;
+            display: inline-block;
+            height: 100%;
+            text-align: center;
+        }
+    }
+    .homeT_right ul li a span:first-child {
+        width: 35%;
+        line-height: 80px;
+        text-align: right;
+        u {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            background: #f2f2f2;
+            line-height: 40px;
+            border-radius: 20px 0 20px 20px;
+            i {
+                color: #666;
+                font-size: 20px;
+            }
+        }
+    }
+    .homeT_right ul li a span:nth-child(2) {
+        width: 50%;
+        text-align: left;
+        line-height: 94px;
+        u {
+            display: inline-block;
+            height: 40px;
+            text-align: left;
+            b {
+                display: block;
+                line-height: 20px;
+                text-indent: 12px;
+            }
+        }
+    }
+    .homeT_right ul li a span:nth-child(3) {
+        width: 15%;
+        line-height: 80px;
+        text-align: center;
+        i {
+            font-size: 34px;
+            font-weight: 700;
+            color: #d7d7d7;
+        }
+    }
+    .homeT_right li a:hover {
+        color: #c31f3a;
+        & span:first-child u{
+            background: #c31f3a;
+            i {
+                color: #fff;
+            }
+        }
+    }
+    .homeT_right strong {
+        display: block;
+        position: absolute;
+        right: 4px;
+        top: 4px;
+        z-index: 20;
+        background: #eee;
+        width: 14px;
+        height: 14px;
+        text-align: center;
+        line-height: 14px;
+        i {
+            color: #707670;
+            font-size: 12px;
+        }
+    }
+    .homeT_right strong i:hover {
+        color: #c31f3a;
+        cursor: pointer;
     }
 </style>

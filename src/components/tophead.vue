@@ -3,7 +3,7 @@
     <div class="topbackground">
       <el-row class="topone" type="flex" justify="space-between">
         <el-col :span="5">
-          <el-button type="text">亲,  请登录</el-button>
+          <el-button type="text" @click="login">亲,  请登录</el-button>
           <el-button type="text">免费注册</el-button>
           <el-button type="text">手机逛淘宝</el-button>
         </el-col>
@@ -108,6 +108,11 @@ export default {
             {path: '/s', name: '捡漏', id: '6'}
         ]
     }
+  },
+  methods: {
+      login() {
+          this.$router.push({path: '/login'});
+      }
   }
 }
 </script>
